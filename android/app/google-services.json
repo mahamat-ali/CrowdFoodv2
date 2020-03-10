@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "162757941892",
+    "firebase_url": "https://crowdfoodv2.firebaseio.com",
+    "project_id": "crowdfoodv2",
+    "storage_bucket": "crowdfoodv2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:162757941892:android:5da1aa3fb4064a1fdd40d1",
+        "android_client_info": {
+          "package_name": "com.teraptech.crowd_food"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "162757941892-m7cohn93249elin33o9ng3kg91jbv8pb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD8NyCzMZExla632u7jlXZGFY3jQQ82F_4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "162757941892-m7cohn93249elin33o9ng3kg91jbv8pb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
