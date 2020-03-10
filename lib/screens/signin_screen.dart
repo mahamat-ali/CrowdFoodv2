@@ -1,4 +1,6 @@
 import 'package:crowd_food/screens/signup_screen.dart';
+import 'package:crowd_food/services/auth_service.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
@@ -11,6 +13,17 @@ class SignInScreen extends StatefulWidget {
 class _SignInScreenState extends State<SignInScreen> {
   final _formKey = GlobalKey<FormState>();
   String _email, _password;
+
+  final AuthService _authService = AuthService();
+
+  void _onSubmit() async {
+    if (_formKey.currentState.validate()) {
+      _formKey.currentState.save();
+      AuthResult result =
+          await _authService.signInUser(email: _email, password: _password);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,13 +31,6 @@ class _SignInScreenState extends State<SignInScreen> {
       body: Center(
         child: SingleChildScrollView(
           child: Container(
-            decoration: BoxDecoration(
-//              image: DecorationImage(
-//                colorFilter: ColorFilter.mode(Colors.black, BlendMode.dstATop),
-//                fit: BoxFit.cover,
-//                image: AssetImage("assets/images/login.jpg"),
-//              ),
-                ),
             height: MediaQuery.of(context).size.height,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -111,7 +117,7 @@ class _SignInScreenState extends State<SignInScreen> {
                                   ),
                                   color: Colors.black.withOpacity(0.7),
                                   padding: EdgeInsets.all(10),
-                                  onPressed: () {},
+                                  onPressed: _onSubmit,
                                   child: Text(
                                     'Login',
                                     style: TextStyle(
