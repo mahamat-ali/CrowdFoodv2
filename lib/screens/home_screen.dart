@@ -1,3 +1,5 @@
+import 'package:crowd_food/screens/signin_screen.dart';
+import 'package:crowd_food/screens/signup_screen.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -41,14 +43,16 @@ class HomeScreen extends StatelessWidget {
                   child: FlatButton(
                     color: Colors.black.withAlpha(190),
                     child: Text(
-                      "Regular User",
+                      "Sign in",
                       style: TextStyle(
                         fontFamily: 'BellotaText',
                         fontSize: 30,
                         color: Color(0xffffe2ff),
                       ),
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pushNamed(context, SignInScreen.id);
+                    },
                   ),
                 ),
               ),
@@ -65,14 +69,16 @@ class HomeScreen extends StatelessWidget {
                   child: FlatButton(
                     color: Color(0xffe6739f).withAlpha(200),
                     child: Text(
-                      "Restaurant Owner",
+                      "Sign up",
                       style: TextStyle(
                         fontFamily: 'BellotaText',
                         fontSize: 30,
                         color: Colors.black,
                       ),
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pushNamed(context, SignUpScreen.id);
+                    },
                   ),
                 ),
               ),

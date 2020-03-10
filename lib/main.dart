@@ -1,4 +1,6 @@
 import 'package:crowd_food/screens/home_screen.dart';
+import 'package:crowd_food/screens/signin_screen.dart';
+import 'package:crowd_food/screens/signup_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());
@@ -13,6 +15,10 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: HomeScreen(),
+      routes: {
+        SignInScreen.id: (context) => SignInScreen(),
+        SignUpScreen.id: (context) => SignUpScreen(),
+      },
     );
   }
 }
