@@ -1,6 +1,8 @@
+import 'package:crowd_food/screens/home_screen.dart';
 import 'package:crowd_food/screens/signup_screen.dart';
 import 'package:crowd_food/services/auth_service.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
@@ -13,14 +15,30 @@ class SignInScreen extends StatefulWidget {
 class _SignInScreenState extends State<SignInScreen> {
   final _formKey = GlobalKey<FormState>();
   String _email, _password;
+  bool isLoading = false;
 
   final AuthService _authService = AuthService();
 
   void _onSubmit() async {
     if (_formKey.currentState.validate()) {
+      setState(() {
+        isLoading = true;
+      });
       _formKey.currentState.save();
       AuthResult result =
           await _authService.signInUser(email: _email, password: _password);
+      if (result == null) {
+        setState(() {
+          isLoading = false;
+        });
+      } else {
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (context) {
+            return HomeScreen();
+          }),
+        );
+      }
     }
   }
 
@@ -28,14 +46,22 @@ class _SignInScreenState extends State<SignInScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0xffffe2ff),
-      body: Center(
+      body: SafeArea(
         child: SingleChildScrollView(
           child: Container(
-            height: MediaQuery.of(context).size.height,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
+                isLoading
+                    ? SizedBox(
+                        height: 5.0,
+                        child: LinearProgressIndicator(
+                          backgroundColor: Colors.pink[200],
+                        ),
+                      )
+                    : SizedBox.shrink(),
+                SizedBox(height: MediaQuery.of(context).size.height * 0.2),
                 Text(
                   'Crowd Food',
                   style: TextStyle(
@@ -78,6 +104,7 @@ class _SignInScreenState extends State<SignInScreen> {
                           vertical: 10.0,
                         ),
                         child: TextFormField(
+                          obscureText: true,
                           validator: (input) =>
                               input.length < 6 ? 'Must be 6+ characters' : null,
                           decoration: InputDecoration(

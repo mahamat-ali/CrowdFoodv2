@@ -38,9 +38,11 @@ class AuthService {
     return _auth.onAuthStateChanged;
   }
 
-  Future<void> logout(BuildContext context) async {
+  Future<void> logout(BuildContext context, Widget screen) async {
     await _auth.signOut();
-    Navigator.pushReplacementNamed(context, WelcomeScreen.id);
+    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
+      return screen;
+    }));
   }
 
   Future<AuthResult> signInUser({String email, String password}) async {
