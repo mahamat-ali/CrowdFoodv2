@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class FancyFab extends StatefulWidget {
   final Function() onPressed;
@@ -24,14 +25,14 @@ class _FancyFabState extends State<FancyFab>
   @override
   initState() {
     _animationController =
-        AnimationController(vsync: this, duration: Duration(milliseconds: 500))
+        AnimationController(vsync: this, duration: Duration(milliseconds: 400))
           ..addListener(() {
             setState(() {});
           });
     _animateIcon =
         Tween<double>(begin: 0.0, end: 1.0).animate(_animationController);
     _buttonColor = ColorTween(
-      begin: Colors.blue,
+      begin: Colors.purple,
       end: Colors.red,
     ).animate(CurvedAnimation(
       parent: _animationController,
@@ -70,32 +71,45 @@ class _FancyFabState extends State<FancyFab>
     isOpened = !isOpened;
   }
 
-  Widget add() {
+  Widget shareFacebook() {
     return Container(
       child: FloatingActionButton(
         onPressed: null,
-        tooltip: 'Add',
-        child: Icon(Icons.add),
+        tooltip: 'Facebook Share',
+        child: Icon(
+          FontAwesomeIcons.facebookF,
+          size: 35,
+        ),
       ),
     );
   }
 
-  Widget image() {
+  Widget instagram() {
     return Container(
       child: FloatingActionButton(
+        backgroundColor: Color(0xff9922a4),
         onPressed: null,
-        tooltip: 'Image',
-        child: Icon(Icons.image),
+        tooltip: 'Instagram Share',
+        child: Icon(
+          FontAwesomeIcons.instagram,
+          size: 35,
+          color: Colors.white,
+        ),
       ),
     );
   }
 
-  Widget inbox() {
+  Widget twitter() {
     return Container(
       child: FloatingActionButton(
+        backgroundColor: Color(0xff1c9deb),
         onPressed: null,
-        tooltip: 'Inbox',
-        child: Icon(Icons.inbox),
+        tooltip: 'Twitter Share',
+        child: Icon(
+          FontAwesomeIcons.twitter,
+          color: Colors.white70,
+          size: 30,
+        ),
       ),
     );
   }
@@ -106,9 +120,10 @@ class _FancyFabState extends State<FancyFab>
         backgroundColor: _buttonColor.value,
         onPressed: animate,
         tooltip: 'Toggle',
-        child: AnimatedIcon(
-          icon: AnimatedIcons.menu_close,
-          progress: _animateIcon,
+        child: Icon(
+          FontAwesomeIcons.shareAlt,
+          color: Colors.white70,
+          size: 30,
         ),
       ),
     );
@@ -125,7 +140,7 @@ class _FancyFabState extends State<FancyFab>
             _translateButton.value * 3.0,
             0.0,
           ),
-          child: add(),
+          child: shareFacebook(),
         ),
         Transform(
           transform: Matrix4.translationValues(
@@ -133,7 +148,7 @@ class _FancyFabState extends State<FancyFab>
             _translateButton.value * 2.0,
             0.0,
           ),
-          child: image(),
+          child: instagram(),
         ),
         Transform(
           transform: Matrix4.translationValues(
@@ -141,7 +156,7 @@ class _FancyFabState extends State<FancyFab>
             _translateButton.value,
             0.0,
           ),
-          child: inbox(),
+          child: twitter(),
         ),
         toggle(),
       ],

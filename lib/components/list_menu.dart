@@ -1,15 +1,13 @@
 import 'package:flutter/material.dart';
 
 class ListTileMenuItem extends StatelessWidget {
-  ListTileMenuItem({
-    this.title,
-    this.icon,
-    this.callback,
-  });
+  ListTileMenuItem(
+      {this.title, this.icon, this.callback, this.traillingWidget});
 
   final String title;
   final Icon icon;
   final Function callback;
+  final Widget traillingWidget;
 
   @override
   Widget build(BuildContext context) {
@@ -24,6 +22,7 @@ class ListTileMenuItem extends StatelessWidget {
           color: Colors.pink.withOpacity(.7),
         ),
       ),
+      trailing: traillingWidget,
       onTap: callback,
     );
   }

@@ -1,3 +1,4 @@
+import 'package:crowd_food/components/animated_fab.dart';
 import 'package:crowd_food/components/dish_cart.dart';
 import 'package:crowd_food/components/list_menu.dart';
 import 'package:crowd_food/screens/cart.dart';
@@ -91,6 +92,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     print(selectedItemInDrawer);
     return Scaffold(
+      floatingActionButton: selectedItemInDrawer == 0 ? FancyFab() : null,
       drawer: Container(
 //        width: 250,
         child: Drawer(
