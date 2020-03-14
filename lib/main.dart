@@ -1,4 +1,8 @@
+import 'package:crowd_food/screens/cart.dart';
+import 'package:crowd_food/screens/contact_us.dart';
 import 'package:crowd_food/screens/home_screen.dart';
+import 'package:crowd_food/screens/orders.dart';
+import 'package:crowd_food/screens/restaurants.dart';
 import 'package:crowd_food/screens/welcome_screen.dart';
 import 'package:crowd_food/screens/signin_screen.dart';
 import 'package:crowd_food/screens/signup_screen.dart';
@@ -34,7 +38,11 @@ class MyApp extends StatelessWidget {
       routes: {
         SignInScreen.id: (context) => SignInScreen(),
         SignUpScreen.id: (context) => SignUpScreen(),
-        HomeScreen.id: (context) => HomeScreen()
+        HomeScreen.id: (context) => HomeScreen(),
+        RestaurantsScreen.id: (context) => RestaurantsScreen(),
+        CartScreen.id: (context) => CartScreen(),
+        OrdersScreen.id: (context) => OrdersScreen(),
+        ContactUsScreen.id: (context) => ContactUsScreen()
       },
     );
   }
