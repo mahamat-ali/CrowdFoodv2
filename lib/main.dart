@@ -1,7 +1,7 @@
 import 'package:crowd_food/screens/cart.dart';
 import 'package:crowd_food/screens/contact_us.dart';
 import 'package:crowd_food/screens/home_screen.dart';
-import 'package:crowd_food/screens/orders.dart';
+import 'package:crowd_food/screens/order.dart';
 import 'package:crowd_food/screens/restaurants.dart';
 import 'package:crowd_food/screens/welcome_screen.dart';
 import 'package:crowd_food/screens/signin_screen.dart';
@@ -41,7 +41,7 @@ class MyApp extends StatelessWidget {
         HomeScreen.id: (context) => HomeScreen(),
         RestaurantsScreen.id: (context) => RestaurantsScreen(),
         CartScreen.id: (context) => CartScreen(),
-        OrdersScreen.id: (context) => OrdersScreen(),
+        OrderScreen.id: (context) => OrderScreen(),
         ContactUsScreen.id: (context) => ContactUsScreen()
       },
     );

@@ -3,7 +3,7 @@ import 'package:crowd_food/components/dish_cart.dart';
 import 'package:crowd_food/components/list_menu.dart';
 import 'package:crowd_food/screens/cart.dart';
 import 'package:crowd_food/screens/contact_us.dart';
-import 'package:crowd_food/screens/orders.dart';
+import 'package:crowd_food/screens/order.dart';
 import 'package:crowd_food/screens/restaurants.dart';
 import 'package:crowd_food/screens/signup_screen.dart';
 import 'package:crowd_food/screens/welcome_screen.dart';
@@ -30,7 +30,7 @@ class _HomeScreenState extends State<HomeScreen> {
         return DishCard(
           name: 'Noodles',
           photoUrl:
-              'https://www.cookwithmanali.com/wp-content/uploads/2018/04/Instant-Pot-Thai-Peanut-Noodles-500x375.jpg',
+              'https://images.unsplash.com/photo-1563379926898-05f4575a45d8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
           description:
               'Noodles are a type of food made from unleavened dough which is rolled flat and cut, stretched or extruded, into long strips or strings.',
         );
@@ -42,7 +42,7 @@ class _HomeScreenState extends State<HomeScreen> {
         return CartScreen();
         break;
       case 3:
-        return OrdersScreen();
+        return OrderScreen();
         break;
       case 4:
         return ContactUsScreen();
@@ -66,7 +66,7 @@ class _HomeScreenState extends State<HomeScreen> {
         return 'Cart';
         break;
       case 3:
-        return 'Orders';
+        return 'Order Summary';
         break;
       case 4:
         return 'Contact Us';
@@ -118,7 +118,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: Column(
                     children: <Widget>[
                       CircleAvatar(
-                        radius: 50.0,
+                        radius: 40.0,
                         backgroundImage:
                             AssetImage('assets/images/profile.jpg'),
                       ),
@@ -128,6 +128,14 @@ class _HomeScreenState extends State<HomeScreen> {
                           fontFamily: 'BellotaText',
                           fontSize: 26,
                           color: Colors.grey,
+                        ),
+                      ),
+                      Text(
+                        'Balance: ₹450',
+                        style: TextStyle(
+                          fontFamily: 'BellotaText',
+                          fontSize: 18,
+                          color: Colors.purple,
                         ),
                       ),
                     ],

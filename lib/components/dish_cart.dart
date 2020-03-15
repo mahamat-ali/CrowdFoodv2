@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class DishCard extends StatelessWidget {
   DishCard({
@@ -27,12 +28,12 @@ class DishCard extends StatelessWidget {
       elevation: 5,
       margin: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
       child: Container(
-        height: 370,
+//        height: 394,
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
             Container(
-              height: 200.0,
+              height: 220.0,
               width: double.infinity,
               decoration: BoxDecoration(
                 borderRadius: new BorderRadius.only(
@@ -40,7 +41,7 @@ class DishCard extends StatelessWidget {
                   topRight: Radius.circular(10),
                 ),
                 image: DecorationImage(
-                  fit: BoxFit.fill,
+                  fit: BoxFit.cover,
                   image: NetworkImage(
                     photoUrl,
                   ),
@@ -68,6 +69,17 @@ class DishCard extends StatelessWidget {
                     fontSize: 18,
                     color: Colors.black.withOpacity(0.8),
                   ),
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Align(
+                alignment: Alignment.bottomRight,
+                child: Icon(
+                  FontAwesomeIcons.star,
+                  size: 30,
+                  color: Colors.red.withOpacity(0.8),
                 ),
               ),
             ),
