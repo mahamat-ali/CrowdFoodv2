@@ -1,6 +1,8 @@
 import 'package:crowd_food/screens/cart.dart';
 import 'package:crowd_food/screens/contact_us.dart';
+import 'package:crowd_food/screens/dish_details.dart';
 import 'package:crowd_food/screens/home_screen.dart';
+import 'package:crowd_food/screens/menu.dart';
 import 'package:crowd_food/screens/order.dart';
 import 'package:crowd_food/screens/restaurants.dart';
 import 'package:crowd_food/screens/welcome_screen.dart';
@@ -42,7 +44,9 @@ class MyApp extends StatelessWidget {
         RestaurantsScreen.id: (context) => RestaurantsScreen(),
         CartScreen.id: (context) => CartScreen(),
         OrderScreen.id: (context) => OrderScreen(),
-        ContactUsScreen.id: (context) => ContactUsScreen()
+        ContactUsScreen.id: (context) => ContactUsScreen(),
+        DishDetailScreen.id: (context) => DishDetailScreen(),
+        MenuScreen.id: (context) => MenuScreen()
       },
     );
   }

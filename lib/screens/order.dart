@@ -7,6 +7,7 @@ class OrderScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
+      heightFactor: 1.1,
       child: Container(
         height: 420,
         child: Card(
