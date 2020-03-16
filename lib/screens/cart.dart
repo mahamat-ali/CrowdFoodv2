@@ -17,15 +17,16 @@ class _CartScreenState extends State<CartScreen> {
         Expanded(
           child: Container(
             child: ListView.builder(
-              itemCount: 20,
+              itemCount: 1,
               itemBuilder: (context, index) {
                 return CartWidget(
                   photoUrl:
                       'https://images.unsplash.com/photo-1563379926898-05f4575a45d8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
                   quantity: 1,
-                  price: 290,
-                  title: 'Noodless',
-                  subTitle: 'loremm sdcn jdncs jsdcsn sdcjsn',
+                  price: 80,
+                  title: 'Non Veg Momos',
+                  subTitle:
+                      'Momo is a type of South Asian dumpling, popular across the Indian subcontinent and the Himalayan regions of broader South Asia.',
                   add: () {},
                   remove: () {},
                   delete: () {},

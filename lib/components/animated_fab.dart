@@ -74,6 +74,7 @@ class _FancyFabState extends State<FancyFab>
   Widget shareFacebook() {
     return Container(
       child: FloatingActionButton(
+        heroTag: 'facebook',
         onPressed: null,
         tooltip: 'Facebook Share',
         child: Icon(
@@ -87,6 +88,7 @@ class _FancyFabState extends State<FancyFab>
   Widget instagram() {
     return Container(
       child: FloatingActionButton(
+        heroTag: 'instagram',
         backgroundColor: Color(0xff9922a4),
         onPressed: null,
         tooltip: 'Instagram Share',
@@ -102,6 +104,7 @@ class _FancyFabState extends State<FancyFab>
   Widget twitter() {
     return Container(
       child: FloatingActionButton(
+        heroTag: 'twitter',
         backgroundColor: Color(0xff1c9deb),
         onPressed: null,
         tooltip: 'Twitter Share',
@@ -117,6 +120,7 @@ class _FancyFabState extends State<FancyFab>
   Widget toggle() {
     return Container(
       child: FloatingActionButton(
+        heroTag: 'toggle',
         backgroundColor: _buttonColor.value,
         onPressed: animate,
         tooltip: 'Toggle',

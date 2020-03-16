@@ -8,6 +8,7 @@ import 'package:crowd_food/screens/restaurants.dart';
 import 'package:crowd_food/screens/signup_screen.dart';
 import 'package:crowd_food/screens/welcome_screen.dart';
 import 'package:crowd_food/services/auth_service.dart';
+import 'package:crowd_food/services/database_service.dart';
 //import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -90,11 +91,9 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    print(selectedItemInDrawer);
     return Scaffold(
       floatingActionButton: selectedItemInDrawer == 0 ? FancyFab() : null,
       drawer: Container(
-//        width: 250,
         child: Drawer(
           child: Scaffold(
             backgroundColor: Color(0xffffe2ff),

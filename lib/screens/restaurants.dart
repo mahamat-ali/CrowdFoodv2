@@ -1,16 +1,32 @@
-import 'package:crowd_food/screens/dish_details.dart';
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:crowd_food/models/restaurant_model.dart';
 import 'package:crowd_food/screens/menu.dart';
+import 'package:crowd_food/services/database_service.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class RestaurantsScreen extends StatelessWidget {
   static final String id = 'Restaurants';
   @override
   Widget build(BuildContext context) {
+    return StreamProvider<List<Restaurant>>.value(
+      value: DatabaseService().restaurants,
+      child: RestaurantList(),
+    );
+  }
+}
+
+class RestaurantList extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    final restaurant = Provider.of<List<Restaurant>>(context) ?? [];
     return ListView.builder(
       itemBuilder: (context, index) {
         return GestureDetector(
           onTap: () {
-            Navigator.pushNamed(context, MenuScreen.id);
+            Navigator.push(context, MaterialPageRoute(builder: (context) {
+              return MenuScreen(restoId: restaurant[index].id);
+            }));
           },
           child: Container(
             padding: EdgeInsets.all(8),
@@ -27,14 +43,12 @@ class RestaurantsScreen extends StatelessWidget {
                       BlendMode.darken,
                     ),
                     fit: BoxFit.cover,
-                    image: NetworkImage(
-                      'https://images.unsplash.com/photo-1551530078-379240770349?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1286&q=80',
-                    ),
+                    image: NetworkImage(restaurant[index].imageUrl),
                   ),
                 ),
                 child: Center(
                   child: Text(
-                    'Chicken County',
+                    restaurant[index].name,
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontFamily: 'BellotaText',
@@ -48,7 +62,7 @@ class RestaurantsScreen extends StatelessWidget {
           ),
         );
       },
-      itemCount: 10,
+      itemCount: restaurant.length,
     );
   }
 }
